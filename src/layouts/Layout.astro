@@ -1,50 +1,114 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="mx-aut">
+    <header class="max-w-screen-xl mx-auto my-4 sticky top-0 z-10">
+      <Header />
+    </header>
+    <main
+      class="-mt-[104px] relative bg-gradient-to-b from-gray-900 to-gray-900"
+    >
+      <!-- About Section -->
+      <div
+        class="about-section bg-[url('/images/trinchera.png')] bg-cover bg-no-repeat bg-center h-auto w-full pt-32 relative"
+      >
+        <!-- Fading Gradient Overlay (top to bottom) -->
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-100"
+        >
+        </div>
+        <!-- Content -->
+        <div class="max-w-screen-xl mx-auto relative">
+          <slot name="about-section" />
+        </div>
+      </div>
+
+      <!-- Tokenomics Section -->
+      <div
+        class="tockenomics-section bg-[url('/images/ring.png')] bg-cover bg-no-repeat bg-center w-full pt-32 relative"
+      >
+        <!-- Fading Gradient Overlay (top to bottom) -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-95"
+        >
+        </div>
+        <!-- Content -->
+        <div class="max-w-screen-xl mx-auto relative">
+          <slot name="tockenomics-section" />
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <div>
+        <!-- Fading Gradient Overlay (top to bottom) -->
+        <!-- <div
+          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-95"
+        >
+        </div> -->
+        <!-- Content -->
+        <div class="max-w-screen-xl mx-auto relative">
+          <slot name="footer-section" />
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+  }
+
+  body {
+  }
+  main {
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
 </style>

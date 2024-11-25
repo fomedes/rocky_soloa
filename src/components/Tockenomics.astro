@@ -1,0 +1,72 @@
+---
+import Card from "./Card.astro";
+---
+
+<div class="max-w-[70%] mx-auto">
+  <div class="flex items-center justify-center mx-auto">
+    <img src="/images/rockenomics.png" alt="Tokenomics title" class="h-96" />
+  </div>
+
+  <div class="max-w-screen-xl mx-auto mb-4 -mt-4">
+    <!-- Grid Layout -->
+    <div class="grid grid-rows-2 grid-cols-3 gap-8">
+      <!-- Row 1: Cards -->
+      <ul role="list" class="grid grid-cols-3 gap-8 col-span-3 row-start-1">
+        <Card
+          href=""
+          title="Supply"
+          bottom="1B"
+          image="/images/tockenomics/money_bag.png"
+        />
+        <Card
+          href=""
+          title="Launched in"
+          bottom="Pump.fun"
+          image="/images/tockenomics/pumpfunlogo.webp"
+        />
+        <Card
+          href=""
+          title="Network"
+          bottom="Solana"
+          image="/images/tockenomics/solana.png"
+        />
+      </ul>
+
+      <!-- Row 2: Text Container -->
+      <div
+        class="col-span-3 row-start-2 bg-zinc-800 text-white p-6 text-center my-auto"
+      >
+        <p class="uppercase text-3xl font-bold">Contract Address</p>
+        <p id="contract-address" class="text-lg font-semibold mb-4">
+          5asd784eas51asdagthyjujfgdfdsdf8658
+        </p>
+        <button
+          onclick="copyToClipboard()"
+          class="bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-full"
+        >
+          Copy Address
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function copyToClipboard(): void {
+    const contractAddressElement = document.getElementById("contract-address");
+
+    if (contractAddressElement) {
+      const textToCopy = contractAddressElement.innerText;
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => {
+          alert("Contract Address copied to clipboard!");
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+        });
+    } else {
+      console.error("Contract address element not found.");
+    }
+  }
+</script>
