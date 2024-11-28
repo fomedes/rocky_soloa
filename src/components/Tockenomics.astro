@@ -15,52 +15,34 @@ import Card from "./Card.astro";
   <!-- Content Section -->
   <div class="max-w-screen-xl mx-auto mb-4 -mt-4">
     <!-- Responsive Grid Layout -->
-    <div class="grid gap-8">
+    <div class="grid gap-8 items-center justify-center">
       <!-- Row 1: Cards -->
-      <ul
-        role="list"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
+      <ul role="list" class="flex flex-col gap-8">
         <Card
-          href=""
-          title="Supply"
-          bottom="1B"
+          text="Supply: 1,000,000,000"
           image="/images/tockenomics/money_bag.png"
         />
         <Card
-          href=""
-          title="Launched in"
-          bottom="Pump.fun"
+          text="Launched in Pump.fun"
           image="/images/tockenomics/pumpfunlogo.webp"
         />
-        <Card
-          href=""
-          title="Network"
-          bottom="Solana"
-          image="/images/tockenomics/solana.png"
-        />
+        <Card text="Solana Network" image="/images/tockenomics/solana.png" />
       </ul>
-
-      <!-- Row 2: Text Container -->
-      <div
-        class="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-radial-bg-primary from-0% to-radial-bg-secondary to-70% text-white p-6 text-center col-span-full"
+    </div>
+    <!-- Row 2: Address Container -->
+    <div class="flex flex-col items-center justify-center mt-12 text-x">
+      <h3
+        class="uppercase text-xl md:text-2xl lg:text-3xl font-bold text-center"
       >
-        <p class="uppercase text-xl md:text-2xl lg:text-3xl font-bold">
-          Contract Address
-        </p>
-        <p
-          id="contract-address"
-          class="text-sm md:text-base lg:text-lg font-semibold mb-4"
-        >
-          5asd784eas51asdagthyjujfgdfdsdf8658
-        </p>
-        <button
-          onclick="copyToClipboard()"
-          class="bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-full"
-        >
-          Copy Address
-        </button>
-      </div>
+        Contract Address
+      </h3>
+      <Card text="5asd784eas51asdagthyjujfgdfdsdf8658" image="" />
+      <button
+        onclick="copyToClipboard()"
+        class="bg-green-500 hover:bg-green-800 text-white py-2 px-4 rounded-full mt-4"
+      >
+        Copy Address
+      </button>
     </div>
   </div>
 </div>

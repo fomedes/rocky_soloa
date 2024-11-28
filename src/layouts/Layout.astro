@@ -23,20 +23,15 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="mx-auto bg-gradient-to-b from-gray-700 to-gray-700">
-    <header class="mx-auto my-4 sticky top-0 z-10 px-4 sm:px-8 bg-">
+  <body class="mx-auto bg-fixed bg-no-repeat bg-center">
+    <header class="mx-auto my-4 sticky top-0 z-10 px-4 sm:px-8">
       <Header />
     </header>
-    <main class="mx-auto relative bg-gradient-to-b from-gray-900 to-gray-900">
+    <main class="mx-auto relative">
       <!-- About Section -->
-      <div
-        class="about-section bg-[url('/images/trinchera.png')] bg-cover bg-no-repeat bg-center h-auto w-full pt-4 relative"
-      >
+      <div class="h-auto w-full pt-4 relative">
         <div class="px-4 sm:px-8">
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-100"
-          >
-          </div>
+          <div class="absolute inset-0"></div>
           <div class="mx-auto relative">
             <slot name="about-section" />
           </div>
@@ -44,13 +39,8 @@ import "../styles/global.css";
       </div>
 
       <!-- Tokenomics Section -->
-      <div
-        class="tockenomics-section bg-[url('/images/ring.png')] bg-cover bg-no-repeat bg-center w-full relative"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-95"
-        >
-        </div>
+      <div class="tockenomics-section w-full relative">
+        <div class="absolute inset-0"></div>
         <div class="max-w-screen-xl mx-auto relative">
           <slot name="tockenomics-section" />
         </div>
@@ -83,7 +73,26 @@ import "../styles/global.css";
   }
 
   body {
+    position: relative;
+    overflow-x: hidden;
+    background-image: url("/images/trinchera_dark.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keep background fixed */
   }
+
+  /* Create the overlay with opacity */
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Apply opacity here */
+    z-index: -1; /* Ensure content is on top */
+  }
+
   main {
     color: white;
     font-size: 16px;

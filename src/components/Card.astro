@@ -1,68 +1,58 @@
 ---
 interface Props {
-  title: string;
-  bottom: string;
-  href: string;
+  text: string;
   image: string;
 }
 
-const { href, title, bottom, image } = Astro.props;
+const { text, image } = Astro.props;
 ---
 
-<li class="link-card">
-  <a href={href} class="flex flex-col justify-between mx-auto text-center">
-    <p class="uppercase text-xl font-bold">
-      {title}
+<div class="link-card mx-10">
+  <div
+    class="flex justify-between items-center mx-auto text-center rounded-full min-w-[250px]"
+  >
+    <p class="uppercase text-md sm:text-xl md:text-2xl font-bold">
+      {text}
     </p>
     <!-- Circle Container -->
-    <div class="relative w-36 h-36 mx-auto my-4">
-      <!-- Circle -->
-      <div class="absolute inset-0 bg-teal-300 rounded-full"></div>
-      <!-- Image -->
-      <img
+    <!-- <div
+      class="flex relative items-center w-12 sm:w-36 md:w-40 h-4 mx-auto my-4"
+    > -->
+    <!-- Circle -->
+    <!-- <div class="absolute inset-0 bg-teal-300 rounded-full"></div> -->
+    <!-- Image -->
+    <!-- <img
         src={image}
         alt=""
-        class="absolute w-28 h-28 inset-0 object-contain m-auto"
+        class="absolute w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 inset-0 object-contain m-auto"
       />
-    </div>
-    <p class="uppercase text-xl font-bold">
+    </div> -->
+    <!-- <p class="uppercase text-lg sm:text-xl md:text-2xl font-bold">
       {bottom}
-    </p>
-  </a>
-</li>
+    </p> -->
+  </div>
+</div>
 <style>
-  .link-card {
+  /* .link-card {
     list-style: none;
     display: flex;
     padding: 1px;
-    background: radial-gradient(#e66465, #9198e5);
     background-image: none;
     background-size: 400%;
-    border-radius: 7px;
     background-position: 100%;
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  }
-  .link-card > a {
+  } */
+  .link-card > div {
     width: 100%;
     text-decoration: none;
     line-height: 1.4;
     background: radial-gradient(#cd02bc, #450167);
-
+    box-shadow: 4px 6px 4px 2px darkslateblue;
     padding: calc(1rem - 1px);
-    border-radius: 8px;
-    color: white;
   }
   h2 {
     margin: 0;
     font-size: 1.25rem;
     transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .link-card:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--accent-gradient);
-  }
-  .link-card:is(:hover, :focus-within) h2 {
-    color: rgb(var(--accent-light));
   }
 </style>
