@@ -20,29 +20,26 @@ import "../styles/global.css";
       rel="stylesheet"
       href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
     />
-
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="mx-aut">
-    <header class="max-w-screen-xl mx-auto my-4 sticky top-0 z-10">
+  <body class="mx-auto">
+    <header class="mx-auto my-4 sticky top-0 z-10 px-4 sm:px-8">
       <Header />
     </header>
-    <main
-      class="-mt-[104px] relative bg-gradient-to-b from-gray-900 to-gray-900"
-    >
+    <main class="mx-auto relative bg-gradient-to-b from-gray-900 to-gray-900">
       <!-- About Section -->
       <div
         class="about-section bg-[url('/images/trinchera.png')] bg-cover bg-no-repeat bg-center h-auto w-full pt-32 relative"
       >
-        <!-- Fading Gradient Overlay (top to bottom) -->
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-100"
-        >
-        </div>
-        <!-- Content -->
-        <div class="max-w-screen-xl mx-auto relative">
-          <slot name="about-section" />
+        <div class="px-4 sm:px-8">
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-100"
+          >
+          </div>
+          <div class="mx-auto relative">
+            <slot name="about-section" />
+          </div>
         </div>
       </div>
 
@@ -50,12 +47,10 @@ import "../styles/global.css";
       <div
         class="tockenomics-section bg-[url('/images/ring.png')] bg-cover bg-no-repeat bg-center w-full pt-32 relative"
       >
-        <!-- Fading Gradient Overlay (top to bottom) -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-95"
         >
         </div>
-        <!-- Content -->
         <div class="max-w-screen-xl mx-auto relative">
           <slot name="tockenomics-section" />
         </div>
@@ -63,12 +58,6 @@ import "../styles/global.css";
 
       <!-- Footer Section -->
       <div>
-        <!-- Fading Gradient Overlay (top to bottom) -->
-        <!-- <div
-          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-95"
-        >
-        </div> -->
-        <!-- Content -->
         <div class="max-w-screen-xl mx-auto relative">
           <slot name="footer-section" />
         </div>
@@ -90,7 +79,7 @@ import "../styles/global.css";
     );
   }
   html {
-    font-family: system-ui, sans-serif;
+    font-family: "IM Fell DW Pica", sans-serif;
   }
 
   body {
@@ -99,16 +88,5 @@ import "../styles/global.css";
     color: white;
     font-size: 16px;
     line-height: 1.6;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
   }
 </style>

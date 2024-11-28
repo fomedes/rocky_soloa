@@ -2,16 +2,25 @@
 import Card from "./Card.astro";
 ---
 
-<div class="max-w-[70%] mx-auto">
+<div class="mx-auto">
+  <!-- Image Section -->
   <div class="flex items-center justify-center mx-auto">
-    <img src="/images/rockenomics.png" alt="Tokenomics title" class="h-96" />
+    <img
+      src="/images/rockenomics.png"
+      alt="Tokenomics title"
+      class="h-48 md:h-64 lg:h-96"
+    />
   </div>
 
+  <!-- Content Section -->
   <div class="max-w-screen-xl mx-auto mb-4 -mt-4">
-    <!-- Grid Layout -->
-    <div class="grid grid-rows-2 grid-cols-3 gap-8">
+    <!-- Responsive Grid Layout -->
+    <div class="grid gap-8">
       <!-- Row 1: Cards -->
-      <ul role="list" class="grid grid-cols-3 gap-8 col-span-3 row-start-1">
+      <ul
+        role="list"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         <Card
           href=""
           title="Supply"
@@ -33,11 +42,14 @@ import Card from "./Card.astro";
       </ul>
 
       <!-- Row 2: Text Container -->
-      <div
-        class="col-span-3 row-start-2 bg-zinc-800 text-white p-6 text-center my-auto"
-      >
-        <p class="uppercase text-3xl font-bold">Contract Address</p>
-        <p id="contract-address" class="text-lg font-semibold mb-4">
+      <div class="bg-zinc-800 text-white p-6 text-center col-span-full">
+        <p class="uppercase text-xl md:text-2xl lg:text-3xl font-bold">
+          Contract Address
+        </p>
+        <p
+          id="contract-address"
+          class="text-sm md:text-base lg:text-lg font-semibold mb-4"
+        >
           5asd784eas51asdagthyjujfgdfdsdf8658
         </p>
         <button
@@ -52,7 +64,7 @@ import Card from "./Card.astro";
 </div>
 
 <script>
-  function copyToClipboard(): void {
+  function copyToClipboard() {
     const contractAddressElement = document.getElementById("contract-address");
 
     if (contractAddressElement) {

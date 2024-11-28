@@ -3,17 +3,28 @@
 ---
 
 <header class="bg-purple-700 text-white py-4 px-6 rounded-full">
-  <nav class="flex items-center justify-between">
+  <nav class="flex flex-wrap items-center justify-between">
     <!-- Logo/Image -->
     <div class="flex items-center">
-      <img src="/images/rs_logo_web.png" alt="Logo" class="w-40 mr-4" />
+      <img src="/images/rs_logo_web.png" alt="Logo" class="w-32 md:w-40 mr-4" />
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="block md:hidden">
+      <button
+        id="menu-button"
+        class="text-white hover:text-purple-300 focus:outline-none"
+        onclick="toggleMenu()"
+      >
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
     </div>
 
     <!-- Navigation Menu -->
-    <div class="flex gap-4">
+    <div class="hidden md:flex md:items-center md:gap-4">
       <a
         href="#section1"
-        class="text-white px-4 py-2 rounded-full hover:bg-purple-500"
+        class="text-white uppercase px-4 py-2 rounded-full hover:bg-purple-500"
       >
         About
       </a>
@@ -32,41 +43,66 @@
     </div>
 
     <!-- Community Buttons -->
-    <div class="flex items-center gap-4">
+    <div class="hidden md:flex items-center gap-4">
       <a
         href=""
         target="_blank"
-        class="text-white hover:text-green-500 text-3xl"
+        class="text-white hover:text-green-500 text-2xl md:text-3xl"
       >
         <i class="fab fa-x-twitter"></i>
       </a>
       <a
         href=""
         target="_blank"
-        class="text-white hover:text-green-500 text-3xl"
+        class="text-white hover:text-green-500 text-2xl md:text-3xl"
       >
         <i class="fab fa-telegram"></i>
       </a>
       <a
-        href="social3"
+        href=""
         class="flex items-center gap-2 text-white bg-teal-400 hover:bg-green-800 px-4 py-2 rounded-full"
       >
         Buy Soloa
       </a>
     </div>
-
-    <!-- <a
-        href="#section4"
-        class="text-white px-4 py-2 rounded-md bg-purple-600 hover:bg-purple-500"
-      >
-        Community
-      </a> -->
-    <!--      <a href="#section5" class="text-white px-4 py-2 rounded-md bg-purple-600 hover:bg-purple-500">
-        Blog
-      </a>
-      <a href="#section6" class="text-white px-4 py-2 rounded-md bg-purple-600 hover:bg-purple-500">
-        Contact
-      </a>
--->
   </nav>
+
+  <!-- Overlay Menu -->
+  <div
+    id="overlay-menu"
+    class="fixed inset-0 bg-black bg-opacity-50 hidden flex-col items-center justify-center z-50"
+  >
+    <div class="bg-purple-700 bg-opacity-50 w-full h-full p-8 relative">
+      <button
+        id="close-button"
+        class="text-white text-3xl absolute top-4 right-4 focus:outline-none"
+      >
+        &times;
+      </button>
+      <div class="flex flex-col items-center justify-center gap-6 h-full">
+        <a href="#section1" class="text-white px-4 py-2 rounded-full">About</a>
+        <a href="#section2" class="text-white px-4 py-2 rounded-full"
+          >Rockenomics</a
+        >
+        <a href="#section3" class="text-white px-4 py-2 rounded-full">Roadmap</a
+        >
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menu-button");
+    const closeButton = document.getElementById("close-button");
+    const overlayMenu = document.getElementById("overlay-menu");
+
+    function toggleMenu() {
+      overlayMenu!.classList.toggle("hidden");
+    }
+
+    // Attach event listeners
+    menuButton!.addEventListener("click", toggleMenu);
+    closeButton!.addEventListener("click", toggleMenu);
+  });
+</script>
